@@ -1,3 +1,3 @@
 # dotfiles
 
-placholder. more to come. 
+placeholder. more to come. 
