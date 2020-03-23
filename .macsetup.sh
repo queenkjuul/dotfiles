@@ -33,7 +33,7 @@ install_omf () {
 
 install_omz () {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    autoload -U compinit && compinit
+    zsh -c 'autoload -U compinit && compinit'
 }
 
 install_dotfiles () {
@@ -55,4 +55,20 @@ omf_packages () {
     fish -c 'omf install https://github.com/queenkjuul/omf-pride-cat'
     fish -c 'omf install pisces'
 }
+
+###################
+
+# check shell
+
+echo "shell is $SHELL"
+
+if [[ $SHELL == 'bash' ]]; then
+    echo "changing to zsh"
+    chsh -s /bin/zsh
+fi
+
+if [[ $SHELL == 'fish' ]]; then
+    echo "you shouldn't have fish as your system shell. your .zshrc handles that, remember?"
+    chsh -s /bin/zsh
+fi
 
